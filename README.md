@@ -10,10 +10,14 @@ Consiste de um CodeIgniter 3 com a pasta System original, porém com algumas mod
  - jQuery 
  - custom.css e custom.js praticamente zerados
 
- **Admin**
+![frontend](http://i.imgur.com/dI6qT4X.jpg)
+
+**Admin**
+
  - Implementação do [Light Bootstrap Dashboard](https://www.creative-tim.com/product/light-bootstrap-dashboard) no CodeIgniter
  -  Arquivo original apenas adaptado para uso do sistema básico de template
-   - Então é só criar a view na pasta views/admin/pages/minha_nova_view.php e botar um link no menu em views/admin/pages/templates/default.php
+
+![admin panel](http://i.imgur.com/saGSeb6.jpg)
 
 **Modificações Gerais**
 
