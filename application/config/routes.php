@@ -54,10 +54,6 @@ $route['assets/(:any)'] = 'assets/$1';
 $route['admin'] = 'admin/view';
 $route['admin/(:any)'] = 'admin/view/$1';
 
-$route['news/create'] = 'news/create';
-$route['news/(:any)'] = 'news/view/$1';
-$route['news'] = 'news';
-
 $route['(:any)'] = 'pages/view/$1';
 $route['default_controller'] = 'pages/view';
 
