@@ -24,7 +24,12 @@
 			</nav>
 		</header>
 		<main class="container">
-			<?php echo $body ?>
+			<div class="col-md-8">
+				<?php echo $body ?>
+			</div>
+			<div class="col-md-4">
+				Esta é minha sidebar.
+			</div>
 		</main>
 
 		<footer class="container">
