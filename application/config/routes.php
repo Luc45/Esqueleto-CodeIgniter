@@ -49,14 +49,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
+
+$route['404_override'] = 'pages/not_found';
+$route['translate_uri_dashes'] = FALSE;
+
 $route['assets/(:any)'] = 'assets/$1';
 
-$route['admin'] = 'admin/view';
-$route['admin/(:any)'] = 'admin/view/$1';
+$route['admin'] = 'admin/estatico';
+$route['admin/logout'] = 'admin/login/logout';
 
-$route['(:any)'] = 'pages/view/$1';
-$route['default_controller'] = 'pages/view';
+$route['login'] = 'admin/login';
+$route['logout'] = 'admin/login/logout';
 
-$route['welcome'] = 'welcome/index';
-$route['404_override'] = '';
-$route['translate_uri_dashes'] = FALSE;
+$route['admin/paginas'] = 'admin/paginas/index';
+$route['admin/paginas/editar/(:any)'] = 'admin/paginas/editar/$1';
+
+$route['admin/(:any)'] = 'admin/estatico/index/$1';
+
+// Controller de páginas
+// Exemplo: sobre = controller pages, action sobre
+$route['(:any)'] = 'pages/$1';
+
+// Index do nosso site
+$route['default_controller'] = 'pages/home';

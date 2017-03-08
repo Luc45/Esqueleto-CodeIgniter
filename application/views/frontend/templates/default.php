@@ -12,12 +12,20 @@
 			<nav class="navbar navbar-default navbar-fixed-top">
 				<div class="container">
 					<div class="navbar-header">
-						<a class="navbar-brand" href="<?php echo base_url()?>">MVC Básico</a>
+						<a class="navbar-brand" href="<?php echo base_url()?>">CodeIgniter Básico</a>
 					</div>
 					<div class="nav navbar-right navbar-nav">
 						<ul class="nav navbar-nav">
-							<li <?php echo isset($menu_ativo) && $menu_ativo=='home'?'class="active"':''?>><a href="<?php echo site_url();?>">Home</a></li>
-							<li <?php echo isset($menu_ativo) && $menu_ativo=='sobre'?'class="active"':''?>><a href="<?php echo site_url()?>sobre">Sobre</a></li>
+							<li class="<?php echo $menu_ativo=='home'?'active':''?>"><a href="<?php echo site_url(); ?>">Home</a></li>
+							<li class="<?php echo $menu_ativo=='sobre'?'active':''?>">
+								<a href="<?php echo site_url(); ?>" class="dropdown-toggle" data-toggle="dropdown" role="button">Sobre <span class="caret"></span></a>
+								<ul class="dropdown-menu">
+									<li><a href="<?php echo site_url(); ?>exemplo">Exemplo 1</a></li>
+									<li><a href="<?php echo site_url(); ?>exemplo">Exemplo 2</a></li>
+									<li><a href="<?php echo site_url(); ?>exemplo">Exemplo 3</a></li>
+								</ul>
+							</li>
+							<li class="<?php echo $menu_ativo=="contato"?'active':''?>"><a href="<?php echo site_url(); ?>contato">Contato</a></li>
 						</ul>
 					</div>
 				</div>

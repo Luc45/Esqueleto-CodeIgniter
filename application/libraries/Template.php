@@ -77,5 +77,38 @@
 		    $this->ci->load->view('admin/templates/'.$template, $data);
 		}
 
+		function load_admin_login($data = array()) {
+		    $this->ci->load->view('admin\templates\login.php', $data);
+		}
+
+		function load_from_db($tipo_view, $pagina = null, $data = null, $template = 'default.php') {
+
+		    if ( ! is_null( $pagina ) ) {
+
+		    	$CI =& get_instance();
+
+		    	$CI->db->select('corpo, titulo');
+				$query = $CI->db->get_where('paginas', array('url' => $pagina))->result_array();
+				if (empty($query)) {
+					show_error('Unable to load the requested file: '.$pagina);
+				} else {
+					$body = $query[0]['corpo'];
+					$titulo = $query[0]['titulo'];
+				}
+		         
+		        if ( is_null($data) ) {
+		            $data = array('body' => $body);
+		        }
+		        else if ( is_array($data) ) {
+		            $data['body'] = $body;
+		            $data['title'] .= $titulo;
+		        }
+		        else if ( is_object($data) ) {
+		            $data->body = $body;
+		        }
+		    }
+
+		    $this->ci->load->view('frontend/templates/'.$template, $data);
+		}
 
     }

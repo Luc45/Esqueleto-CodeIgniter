@@ -25,6 +25,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $config['base_url'] = '';
 
+
+//try to catch the base url in case of undefined base url 
+if (!$config['base_url']) {
+
+    $domain = $_SERVER['HTTP_HOST'] . $_SERVER['SCRIPT_NAME'];
+
+    $domain = preg_replace('/index.php.*/', '', $domain);
+    if (!empty($_SERVER['HTTPS'])) {
+        $config['base_url'] = 'https://' . $domain;
+    } else {
+        $config['base_url'] = 'http://' . $domain;
+    }
+}
+
 /*
 |--------------------------------------------------------------------------
 | Index File
@@ -100,7 +114,7 @@ $config['charset'] = 'UTF-8';
 | setting this variable to TRUE (boolean).  See the user guide for details.
 |
 */
-$config['enable_hooks'] = TRUE;
+$config['enable_hooks'] = FALSE;
 
 /*
 |--------------------------------------------------------------------------

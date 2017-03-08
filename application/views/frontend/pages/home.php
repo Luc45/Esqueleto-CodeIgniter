@@ -1,13 +1,18 @@
-<h2>Página Inicial</h2>
+<div class="row">
+	<div class="col-md-12" id="banner_home">
+		<img src="<?=asset_url()?>img/home.jpg">
+	</div>
+</div>
+<div class="row">
+	<h2>Página Inicial</h2>
+	<hr>
+</div>
+<div class="row">
+	<div class="col-md-6">
+		<p>A pintura acima se chama "A Morte de Sócrates". Pouco importa quem pintou, ou onde... O que é importante aqui é o que essa cena representa... Você com certeza já ouviu falar de Sócrates, não é mesmo? O Grande Filósofo, mestre de Platão, que por sua vez foi mestre de Aristóteles, que por sua vez foi mestre de Alexandre o Grande, conquistador de um império que dominava meio mundo conhecido em sua época...</p>
+	</div>
+	<div class="col-md-6">
+		<p>Agora... Já parou pra pensar por que esse quadro chama "A Morte de Sócrates"? Repare bem na imagem... O que você vê? Sócrates estende sua mão convicto para a taça de cicuta, veneno fortíssimo, enviado para matá-lo. Sócrates fora condenado à morte pela justiça de sua época, por ensinar Filosofia na praça, para qualquer um que quisesse ouvi-lo. À esquerda, os mandantes, à direita, seus discípulos, e ao meio, Sócrates, ao proclamar a famosa frase "Agora sigo eu para a morte, vós para a vida. Quem de nós tem o melhor destino, só os Deuses o sabem."</p>
+	</div>
+</div>
 <hr>
-
-<div class="col-md-6">
-	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent semper eu lectus non tempor. Proin congue nibh dolor, sagittis sodales metus dignissim sed. Donec ac nunc placerat, faucibus ante sed, ultricies ipsum. Ut tempor quis mauris eget dictum. Duis elementum condimentum aliquet. Suspendisse a dolor ac mi viverra suscipit et in mi. Sed non ligula eget est mattis accumsan vitae sed lectus. Vivamus nisl nisi, placerat at ornare sed, vehicula quis orci. Suspendisse eu pretium metus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Ut vel euismod dolor, non bibendum libero. Nulla facilisi. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Ut venenatis, ante at mollis sollicitudin, odio sapien sagittis arcu, quis faucibus orci ligula iaculis lacus.</p>
-
-	<p>Proin consectetur, eros a pellentesque consectetur, felis ex euismod tortor, at volutpat tellus massa condimentum elit. Pellentesque consectetur sapien augue, quis imperdiet urna lacinia at. Cras congue neque iaculis risus tempus viverra. Quisque nec orci ut elit venenatis imperdiet. Aliquam ut molestie purus. Nullam eget enim fringilla, laoreet magna in, facilisis diam. Sed ut odio a leo venenatis interdum. Sed in convallis lorem. Proin fringilla, sem eget sagittis scelerisque, nibh sem pretium elit, ut venenatis dolor tellus ut arcu.</p>
-</div>
-<div class="col-md-6">
-	<p>Sed iaculis eget ligula ac aliquet. Sed in est turpis. Sed luctus enim a magna vestibulum, nec bibendum diam rutrum. Cras auctor, dui a pretium suscipit, nisl odio sodales diam, ac convallis leo ipsum a neque. Maecenas mollis turpis elit, vitae dapibus lacus auctor vel. Aenean sit amet ipsum ac erat feugiat congue. Nam lectus tellus, auctor eu eleifend eu, molestie at diam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget euismod risus. In hac habitasse platea dictumst. Aliquam ut fermentum neque. Cras pharetra tortor at nunc imperdiet, quis fringilla ipsum rutrum. Maecenas arcu nisl, faucibus eu convallis sit amet, feugiat sed mauris. In ac molestie est, sed pretium enim. Maecenas placerat, sem ac vestibulum elementum, lacus massa euismod elit, a molestie tortor orci in est.</p>
-
-	<p>Praesent mattis felis non ornare eleifend. Fusce ullamcorper enim augue, id dictum turpis sodales id. Morbi a luctus tellus. Vivamus ante libero, aliquam nec consequat at, vehicula non lorem. Praesent diam mi, vehicula a augue tempor, mattis sagittis elit. Sed consectetur eros sit amet lorem fermentum pellentesque. Suspendisse id gravida metus. Nunc a libero viverra, ornare odio a, porttitor mi. Mauris ultricies sed mauris et ullamcorper. Praesent lacus odio, varius quis nisl nec, gravida imperdiet velit. Praesent laoreet sem hendrerit accumsan bibendum. Cras quam elit, eleifend vel vulputate ac, hendrerit ut purus. Duis nec auctor leo. Donec elementum tincidunt risus nec cursus. Quisque aliquet, nulla eget tincidunt vulputate, dui erat dictum sapien, ac interdum lacus ante molestie tortor. Nulla ut vulputate metus, convallis hendrerit eros.</p>
-</div>

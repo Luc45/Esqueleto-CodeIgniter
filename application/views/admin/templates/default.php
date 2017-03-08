@@ -5,7 +5,7 @@
 	<link rel="icon" type="image/png" href="<?=asset_url_admin()?>img/favicon.ico">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-	<title><?=$title?></title>
+	<title>CodeIgniter Básico - <?=$title?></title>
 
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
@@ -23,6 +23,8 @@
 
     <!--  CSS for Demo Purpose, don't include it in your project     -->
     <link href="<?=asset_url_admin()?>css/demo.css" rel="stylesheet" />
+
+    <link href="<?php echo asset_url_admin(); ?>css/custom.css" rel="stylesheet" />
 
 
     <!--     Fonts and icons     -->
@@ -44,49 +46,55 @@
     -->
     	<div class="sidebar-wrapper">
             <div class="logo">
-                <a href="http://www.creative-tim.com" class="simple-text">
-                    Creative Tim
+                <a href="<?=admin_url()?>" class="simple-text">
+                    CodeIgniter Básico
                 </a>
             </div>
 
             <ul class="nav">
-                <li <?=$page=='dashboard'?'class="active"':''?>>
+                <li <?=$menu_ativo=='dashboard'?'class="active"':''?>>
                     <a href="<?=admin_url()?>">
                         <i class="pe-7s-graph"></i>
                         <p>Dashboard</p>
                     </a>
                 </li>
-                <li <?=$page=='user'?'class="active"':''?>>
+                <li <?=$menu_ativo=='paginas'?'class="active"':''?>>
+                    <a href="<?=admin_url()?>paginas">
+                        <i class="pe-7s-user"></i>
+                        <p>Páginas</p>
+                    </a>
+                </li>
+                <li <?=$menu_ativo=='user'?'class="active"':''?>>
                     <a href="<?=admin_url()?>user">
                         <i class="pe-7s-user"></i>
                         <p>User Profile</p>
                     </a>
                 </li>
-                <li <?=$page=='table'?'class="active"':''?>>
+                <li <?=$menu_ativo=='table'?'class="active"':''?>>
                     <a href="<?=admin_url()?>table">
                         <i class="pe-7s-note2"></i>
                         <p>Table List</p>
                     </a>
                 </li>
-                <li <?=$page=='typography'?'class="active"':''?>>
+                <li <?=$menu_ativo=='typography'?'class="active"':''?>>
                     <a href="<?=admin_url()?>typography">
                         <i class="pe-7s-news-paper"></i>
                         <p>Typography</p>
                     </a>
                 </li>
-                <li <?=$page=='icons'?'class="active"':''?>>
+                <li <?=$menu_ativo=='icons'?'class="active"':''?>>
                     <a href="<?=admin_url()?>icons">
                         <i class="pe-7s-science"></i>
                         <p>Icons</p>
                     </a>
                 </li>
-                <li <?=$page=='maps'?'class="active"':''?>>
+                <li <?=$menu_ativo=='maps'?'class="active"':''?>>
                     <a href="<?=admin_url()?>maps">
                         <i class="pe-7s-map-marker"></i>
                         <p>Maps</p>
                     </a>
                 </li>
-                <li <?=$page=='notifications'?'class="active"':''?>>
+                <li <?=$menu_ativo=='notifications'?'class="active"':''?>>
                     <a href="<?=admin_url()?>notifications">
                         <i class="pe-7s-bell"></i>
                         <p>Notifications</p>
@@ -101,65 +109,37 @@
             <div class="container-fluid">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
-                        <span class="sr-only">Toggle navigation</span>
+                        <span class="sr-only">Exibir/Esconder Menu</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Dashboard</a>
+                    <a class="navbar-brand" href="#"><?=$title?></a>
                 </div>
                 <div class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav navbar-left">
-                        <li>
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="fa fa-dashboard"></i>
-                            </a>
-                        </li>
-                        <li class="dropdown">
-                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <i class="fa fa-globe"></i>
-                                    <b class="caret"></b>
-                                    <span class="notification">5</span>
-                              </a>
-                              <ul class="dropdown-menu">
-                                <li><a href="#">Notification 1</a></li>
-                                <li><a href="#">Notification 2</a></li>
-                                <li><a href="#">Notification 3</a></li>
-                                <li><a href="#">Notification 4</a></li>
-                                <li><a href="#">Another notification</a></li>
-                              </ul>
-                        </li>
-                        <li>
-                           <a href="">
-                                <i class="fa fa-search"></i>
-                            </a>
-                        </li>
-                    </ul>
+
+                    <!-- Formulário de Pesquisa
+                    <form class="navbar-form navbar-left navbar-search-form" role="search">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-search"></i></span>
+                            <input type="text" value="" class="form-control" placeholder="Pesquisar...">
+                        </div>
+                    </form>
+                    -->
 
                     <ul class="nav navbar-nav navbar-right">
-                        <li>
-                           <a href="">
-                               Account
-                            </a>
-                        </li>
                         <li class="dropdown">
                               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    Dropdown
+                                    Olá, <?=$user->first_name?>!
                                     <b class="caret"></b>
                               </a>
                               <ul class="dropdown-menu">
-                                <li><a href="#">Action</a></li>
-                                <li><a href="#">Another action</a></li>
-                                <li><a href="#">Something</a></li>
-                                <li><a href="#">Another action</a></li>
-                                <li><a href="#">Something</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#">Separated link</a></li>
+                                <li><a href="<?=admin_url()?>perfil/editar/<?=$user->id?>">Editar Perfil</a></li>
                               </ul>
                         </li>
                         <li>
-                            <a href="#">
-                                Log out
+                            <a href="<?=admin_url()?>logout">
+                                <i class="fa fa-sign-out" aria-hidden="true"></i> Logout
                             </a>
                         </li>
                     </ul>
@@ -198,7 +178,7 @@
                             </ul>
                         </nav>
                         <p class="copyright pull-right">
-                            &copy; 2016 <a href="http://www.creative-tim.com">Creative Tim</a>, made with love for a better web
+                            &copy; 2017 <a href="http://www.lucasbustamante.com.br">Lucas Bustamante</a>, desenvolvedor.
                         </p>
                     </div>
                 </footer>
@@ -211,6 +191,7 @@
 
             <!--   Core JS Files   -->
             <script src="<?=asset_url_admin()?>/js/jquery-1.10.2.js" type="text/javascript"></script>
+            <script src="<?=asset_url_admin()?>/js/jquery-ui.min.js" type="text/javascript"></script>
             <script src="<?=asset_url_admin()?>/js/bootstrap.min.js" type="text/javascript"></script>
 
             <!--  Checkbox, Radio & Switch Plugins -->
@@ -222,6 +203,8 @@
             <!--  Notifications Plugin    -->
             <script src="<?=asset_url_admin()?>/js/bootstrap-notify.js"></script>
 
+            <script src="<?=asset_url_admin()?>/js/jquery.datatables.js"></script>
+
             <!--  Google Maps Plugin    -->
             <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
 
@@ -231,26 +214,28 @@
             <!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
             <script src="<?=asset_url_admin()?>/js/demo.js"></script>
 
-            <?php if ($page == 'dashboard'): ?>
+            <script src="<?=asset_url_admin()?>/js/custom.js"></script>
+
+            <?php if ($menu_ativo == 'dashboard'): ?>
                 <script type="text/javascript">
                     $(document).ready(function(){
 
                         demo.initChartist();
 
-                        $.notify({
+                        /*$.notify({
                             icon: 'pe-7s-gift',
                             message: "Welcome to <b>Light Bootstrap Dashboard</b> - a beautiful freebie for every web developer."
 
                         },{
                             type: 'info',
                             timer: 4000
-                        });
+                        });*/
 
                     });
                 </script>
             <?php endif; ?>
 
-            <?php if ($page == 'maps'): ?>
+            <?php if ($menu_ativo == 'maps'): ?>
                 <script>
                     $().ready(function(){
                         demo.initGoogleMaps();

@@ -8,3 +8,17 @@ main.container {
     border-radius: 7px;
     border: 1px solid #c7c7c7;
 }
+div#banner_home {
+    text-align: center;
+    margin-bottom: 30px;
+}
+div#banner_home img {
+    max-width:100%;
+}
+.col-md-4.depoimento {
+    text-align: center;
+}
+.nome {
+    font-weight: bold;
+    font-style: italic;
+}
