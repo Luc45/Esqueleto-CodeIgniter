@@ -21,8 +21,10 @@ Consiste de um CodeIgniter 3 com a pasta System original, porém com algumas mod
 
 **Modificações Gerais**
 
+ - Adicionado sistema de autenticação de administradores e usuários: [Ion Auth](https://github.com/benedmunds/CodeIgniter-Ion-Auth)
  - Pasta "assets" na raiz, para colocar arquivos CSS, JS e imagens
  - Sistema básico de template, para carregar o header, footer e view em uma linha de código no Controller
+ - Adicionado menus dinâmicos direto da database (com child)
  - Possibilidade de setar a site url de acordo com um valor da database, ao invés de ficar hardcoded no config.php
 
  Boa organização de views, separando admin e frontend, e dentro de cada uma separando por tipo.
@@ -65,3 +67,9 @@ Consiste de um CodeIgniter 3 com a pasta System original, porém com algumas mod
   -  routes.php (modificado) -> Adicionado rotas para assets, admin e pages
   -  autoload.php (modificado) -> Configurado para carregar automáticamente as libraries 'database' e 'template', e os helpers 'url' e 'utility' (mencionado acima).
   -  config.php (modificado) -> Alterado language para 'portuguese-br' e enable_hooks para TRUE.
+
+   ** Instalação: **
+    - Descompacte o conteúdo deste zip no webserver de sua preferência
+    - Edite o application/config/config.php e application/config/database.php com a sua preferência
+    - Rode o install.sql que está na pasta raiz e depois delete este arquivo
+    - Eestá pronto pra rodar. Qualquer problema abra um Issue aqui.
