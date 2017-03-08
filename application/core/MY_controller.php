@@ -2,6 +2,8 @@
 
 	class MY_Controller extends CI_Controller {
 
+		protected $user;
+
 		public function __construct() {
 
 			/*
@@ -26,6 +28,10 @@
 			foreach ($config as $key=>$obj) {
 				$CI->config->set_item($obj->name, $obj->value);				
 			}
+
+			$this->load->library('ion_auth');
+			// Torna os dados do usuário disponíveis nas páginas
+			$this->user = $this->ion_auth->user()->row();
 	        
 		}
 

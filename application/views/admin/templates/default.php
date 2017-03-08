@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-br">
 <head>
 	<meta charset="utf-8" />
 	<link rel="icon" type="image/png" href="<?=asset_url_admin()?>img/favicon.ico">
@@ -52,54 +52,72 @@
             </div>
 
             <ul class="nav">
+
                 <li <?=$menu_ativo=='dashboard'?'class="active"':''?>>
                     <a href="<?=admin_url()?>">
                         <i class="pe-7s-graph"></i>
                         <p>Dashboard</p>
                     </a>
                 </li>
+
                 <li <?=$menu_ativo=='paginas'?'class="active"':''?>>
                     <a href="<?=admin_url()?>paginas">
-                        <i class="pe-7s-user"></i>
+                        <i class="pe-7s-note2"></i>
                         <p>Páginas</p>
                     </a>
                 </li>
-                <li <?=$menu_ativo=='user'?'class="active"':''?>>
-                    <a href="<?=admin_url()?>user">
+
+                <li <?=in_array($menu_ativo, array('ver_usuario', 'criar_grupo', 'criar_usuario', 'editar_grupo'))?'class="active"':''?>>
+                    <a data-toggle="collapse" href="#usuariosMenu" class="" aria-expanded="false">
                         <i class="pe-7s-user"></i>
-                        <p>User Profile</p>
+                        <p>Usuários
+                           <b class="caret"></b>
+                        </p>
                     </a>
+                    <div class="collapse <?=in_array($menu_ativo, array('ver_usuario', 'criar_grupo', 'criar_usuario', 'editar_grupo'))?'in':''?>" id="usuariosMenu" aria-expanded="false">
+                        <ul class="nav">
+                            <li <?=$menu_ativo=='ver_usuario'?'class="active"':''?>><a href="<?=admin_url()?>usuarios">Ver usuários</a></li>
+                            <li <?=$menu_ativo=='criar_usuario'?'class="active"':''?>><a href="<?=admin_url()?>usuarios/criar">Criar Usuário</a></li>
+                            <li <?=$menu_ativo=='criar_grupo'?'class="active"':''?>><a href="<?=admin_url()?>usuarios/grupos/criar">Criar Grupo</a></li>
+                        </ul>
+                    </div>
                 </li>
+
                 <li <?=$menu_ativo=='table'?'class="active"':''?>>
                     <a href="<?=admin_url()?>table">
                         <i class="pe-7s-note2"></i>
                         <p>Table List</p>
                     </a>
                 </li>
+
                 <li <?=$menu_ativo=='typography'?'class="active"':''?>>
                     <a href="<?=admin_url()?>typography">
                         <i class="pe-7s-news-paper"></i>
                         <p>Typography</p>
                     </a>
                 </li>
+
                 <li <?=$menu_ativo=='icons'?'class="active"':''?>>
                     <a href="<?=admin_url()?>icons">
                         <i class="pe-7s-science"></i>
                         <p>Icons</p>
                     </a>
                 </li>
+
                 <li <?=$menu_ativo=='maps'?'class="active"':''?>>
                     <a href="<?=admin_url()?>maps">
                         <i class="pe-7s-map-marker"></i>
                         <p>Maps</p>
                     </a>
                 </li>
+
                 <li <?=$menu_ativo=='notifications'?'class="active"':''?>>
                     <a href="<?=admin_url()?>notifications">
                         <i class="pe-7s-bell"></i>
                         <p>Notifications</p>
                     </a>
                 </li>
+
             </ul>
     	</div>
     </div>
@@ -156,23 +174,8 @@
                         <nav class="pull-left">
                             <ul>
                                 <li>
-                                    <a href="#">
+                                    <a href="<?=base_url();?>">
                                         Home
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        Company
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        Portfolio
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                       Blog
                                     </a>
                                 </li>
                             </ul>
@@ -190,47 +193,52 @@
         </body>
 
             <!--   Core JS Files   -->
-            <script src="<?=asset_url_admin()?>/js/jquery-1.10.2.js" type="text/javascript"></script>
-            <script src="<?=asset_url_admin()?>/js/jquery-ui.min.js" type="text/javascript"></script>
-            <script src="<?=asset_url_admin()?>/js/bootstrap.min.js" type="text/javascript"></script>
+            <script src="<?=asset_url_admin()?>js/jquery-1.10.2.js" type="text/javascript"></script>
+            <script src="<?=asset_url_admin()?>js/jquery-ui.min.js" type="text/javascript"></script>
+            <script src="<?=asset_url_admin()?>js/bootstrap.min.js" type="text/javascript"></script>
 
             <!--  Checkbox, Radio & Switch Plugins -->
-            <script src="<?=asset_url_admin()?>/js/bootstrap-checkbox-radio-switch.js"></script>
+            <script src="<?=asset_url_admin()?>js/bootstrap-checkbox-radio-switch.js"></script>
 
             <!--  Charts Plugin -->
-            <script src="<?=asset_url_admin()?>/js/chartist.min.js"></script>
+            <script src="<?=asset_url_admin()?>js/chartist.min.js"></script>
 
             <!--  Notifications Plugin    -->
-            <script src="<?=asset_url_admin()?>/js/bootstrap-notify.js"></script>
+            <script src="<?=asset_url_admin()?>js/bootstrap-notify.js"></script>
 
-            <script src="<?=asset_url_admin()?>/js/jquery.datatables.js"></script>
+            <script src="<?=asset_url_admin()?>js/jquery.datatables.js"></script>
 
             <!--  Google Maps Plugin    -->
             <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
 
             <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
-            <script src="<?=asset_url_admin()?>/js/light-bootstrap-dashboard.js"></script>
+            <script src="<?=asset_url_admin()?>js/light-bootstrap-dashboard.js"></script>
 
             <!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
-            <script src="<?=asset_url_admin()?>/js/demo.js"></script>
+            <script src="<?=asset_url_admin()?>js/demo.js"></script>
 
-            <script src="<?=asset_url_admin()?>/js/custom.js"></script>
+            <script src="<?=asset_url_admin()?>js/custom.js"></script>
+
+            <!-- Habilita as notificações -->
+            <script type="text/javascript">
+                $(document).ready(function(){
+                    <?php if (isset($message)): ?>
+                        $.notify({
+                            icon: 'pe-7s-bell',
+                            message: "<?=$message?>"
+
+                        },{
+                            type: 'warning',
+                            timer: 3000
+                        });
+                    <?php endif; ?>
+                });
+            </script>
 
             <?php if ($menu_ativo == 'dashboard'): ?>
                 <script type="text/javascript">
                     $(document).ready(function(){
-
                         demo.initChartist();
-
-                        /*$.notify({
-                            icon: 'pe-7s-gift',
-                            message: "Welcome to <b>Light Bootstrap Dashboard</b> - a beautiful freebie for every web developer."
-
-                        },{
-                            type: 'info',
-                            timer: 4000
-                        });*/
-
                     });
                 </script>
             <?php endif; ?>

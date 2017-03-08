@@ -40,7 +40,7 @@
                                             <td><?=getExcerpt($pagina['corpo'])?></td>
                                             <td class="text-right">
                                                 <a href="<?=admin_url()?>paginas/editar/<?=$pagina['id']?>" class="btn btn-simple btn-warning btn-icon edit"><i class="fa fa-edit"></i> Editar</a>
-                                                <a href="<?=admin_url()?>paginas/deletar/<?=$pagina['id']?>" class="btn btn-simple btn-danger btn-icon remove"><i class="fa fa-times"></i> Deletar</a>
+                                                <a href="<?=admin_url()?>paginas/deletar/<?=$pagina['id']?>" class="btn btn-simple btn-danger btn-icon remove confirmar"><i class="fa fa-times"></i> Deletar</a>
                                             </td>
                                         </tr>
                                         <?php endforeach; ?>

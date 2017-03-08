@@ -55,11 +55,30 @@ $route['translate_uri_dashes'] = FALSE;
 
 $route['assets/(:any)'] = 'assets/$1';
 
-$route['admin'] = 'admin/estatico';
-$route['admin/logout'] = 'admin/login/logout';
+$route['login'] = 'admin/auth/login';
+$route['logout'] = 'admin/auth/logout';
 
-$route['login'] = 'admin/login';
-$route['logout'] = 'admin/login/logout';
+$route['admin'] = 'admin/estatico';
+ 
+$route['admin/paginas'] = 'admin/paginas/index';
+$route['admin/paginas/editar/(:any)'] = 'admin/paginas/editar/$1';
+ 
+$route['admin/perfil'] = 'admin/perfil/index';
+$route['admin/perfil/editar'] = 'admin/auth/edit_user';
+
+$route['admin/usuarios'] = 'admin/auth/index';
+$route['admin/usuarios/desativar/(:any)'] = 'admin/auth/deactivate/$1';
+$route['admin/usuarios/ativar/(:any)'] = 'admin/auth/activate/$1';
+$route['admin/usuarios/editar/(:any)'] = 'admin/auth/edit_user/$1';
+$route['admin/usuarios/criar'] = 'admin/auth/create_user';
+$route['admin/usuarios/deletar/(:any)'] = 'admin/auth/delete_user/$1';
+$route['admin/usuarios/grupos/criar'] = 'admin/auth/create_group';
+$route['admin/usuarios/grupos/editar/(:any)'] = 'admin/auth/edit_group/$1';
+$route['admin/usuarios/grupos/deletar/(:any)'] = 'admin/auth/delete_group/$1';
+
+$route['esqueci-a-senha'] = 'admin/auth/forgot_password';
+$route['resetar-senha/(:any)'] = 'admin/auth/reset_password/$1';
+$route['ativar-conta/(:any)/(:any)'] = 'admin/auth/activate/$1/$2';
 
 $route['admin/paginas'] = 'admin/paginas/index';
 $route['admin/paginas/editar/(:any)'] = 'admin/paginas/editar/$1';
