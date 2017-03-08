@@ -14,6 +14,13 @@ Consiste de um CodeIgniter 3 com a pasta System original, porém com algumas mod
 
 ![frontend](http://i.imgur.com/dI6qT4X.jpg)
 
+**Login**
+ - Autenticação com Ion Auth
+ - Mensagem se o usuário erra a senha
+ - Validação e sanitização usando funções nativas do CodeIgniter
+ - Proteção contra ataques brute-force, bloqueando tentativas se o usuário errar muitas vezes seguidas a senha (configurável)
+ ![login](http://i.imgur.com/TrOHfdW.jpg)
+
 **Admin**
 
  - Implementação do [Light Bootstrap Dashboard](https://www.creative-tim.com/product/light-bootstrap-dashboard) no CodeIgniter
