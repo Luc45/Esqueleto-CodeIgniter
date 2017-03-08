@@ -3,6 +3,8 @@ Este é um esqueleto em CodeIgniter para projetos PHP.
 
 Consiste de um CodeIgniter 3 com a pasta System original, porém com algumas modificações na pasta applications para permitir criar um projeto rápido:
 
+---
+
  **Frontend**
  
  - Bootstrap 3 
@@ -18,6 +20,8 @@ Consiste de um CodeIgniter 3 com a pasta System original, porém com algumas mod
  -  Arquivo original apenas adaptado para uso do sistema básico de template
 
 ![admin panel](http://i.imgur.com/saGSeb6.jpg)
+
+---
 
 **Modificações Gerais**
 
@@ -70,7 +74,9 @@ Boa organização de views, separando admin e frontend, e dentro de cada uma sep
   -  autoload.php (modificado) -> Configurado para carregar automáticamente as libraries 'database' e 'template', e os helpers 'url' e 'utility' (mencionado acima).
   -  config.php (modificado) -> Alterado language para 'portuguese-br' e enable_hooks para TRUE.
 
-** Instalação: **
+---
+
+**Instalação:**
   - Descompacte o conteúdo deste zip no webserver de sua preferência
   - Edite o application/config/config.php e application/config/database.php com a sua preferência
   - Rode o install.sql que está na pasta raiz e depois delete este arquivo
