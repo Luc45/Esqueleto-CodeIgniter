@@ -40,9 +40,9 @@ class Auth extends MY_Controller {
 				$this->data['usuarios'][$k]->groups = $this->ion_auth->get_users_groups($user->id)->result();
 			}
 
-			$this->data['user'] = $this->user;
 			$this->data['title'] = 'Usuários';
-			$this->data['menu_ativo'] = 'ver_usuario';
+			$this->data['menu_ativo'] = 'usuarios';
+			$this->data['submenu_ativo'] = 'ver_usuario';
 			$this->template->load_admin('usuarios', 'usuarios', $this->data, 'default');
 		}
 	}
@@ -466,7 +466,8 @@ class Auth extends MY_Controller {
 			$this->data['user'] = $this->ion_auth->user($id)->row();
 
 			$this->data['title'] = 'Desativar Usuário';
-			$this->data['menu_ativo'] = 'ver_usuario';
+			$this->data['menu_ativo'] = 'usuarios';
+			$this->data['submenu_ativo'] = 'ver_usuario';
 			$this->template->load_admin('usuarios', 'desativar_usuario', $this->data, 'default');
 		}
 		else
@@ -609,7 +610,8 @@ class Auth extends MY_Controller {
 
             $this->data['user'] = $this->user;
 			$this->data['title'] = 'Criar Usuário';
-			$this->data['menu_ativo'] = 'criar_usuario';
+			$this->data['menu_ativo'] = 'usuarios';
+			$this->data['submenu_ativo'] = 'criar_usuario';
 			$this->template->load_admin('usuarios', 'create_user', $this->data, 'default');
         }
     }
@@ -782,7 +784,8 @@ class Auth extends MY_Controller {
 			'class' => 'form-control',
 		);
 
-		$this->data['menu_ativo'] = 'ver_usuario';
+		$this->data['menu_ativo'] = 'usuarios';
+		$this->data['submenu_ativo'] = 'ver_usuario';
 		$this->template->load_admin('usuarios', 'editar', $this->data, 'default');
 	}
 
@@ -821,19 +824,20 @@ class Auth extends MY_Controller {
 				'id'    => 'group_name',
 				'type'  => 'text',
 				'value' => $this->form_validation->set_value('group_name'),
-				'class' => 'form_control',
+				'class' => 'form-control',
 			);
 			$this->data['description'] = array(
 				'name'  => 'description',
 				'id'    => 'description',
 				'type'  => 'text',
 				'value' => $this->form_validation->set_value('description'),
-				'class' => 'form_control',
+				'class' => 'form-control',
 			);
 
 			$this->data['user'] = $this->user;
 			$this->data['title'] = 'Criar Grupo';
-			$this->data['menu_ativo'] = 'criar_grupo';
+			$this->data['menu_ativo'] = 'usuarios';
+			$this->data['submenu_ativo'] = 'criar_grupo';
 			$this->template->load_admin('usuarios', 'create_group', $this->data, 'default');
 		}
 	}
@@ -903,7 +907,8 @@ class Auth extends MY_Controller {
 
 			$this->data['user'] = $this->user;
 			$this->data['title'] = 'Editar Grupo';
-			$this->data['menu_ativo'] = 'editar_grupo';
+			$this->data['menu_ativo'] = 'usuarios';
+			$this->data['submenu_ativo'] = 'editar_grupo';
 			$this->template->load_admin('usuarios', 'edit_group', $this->data, 'default');
 	}
 

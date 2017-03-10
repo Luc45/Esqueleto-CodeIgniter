@@ -34,9 +34,44 @@ $(document).ready(function() {
 
 });
 
-
+/**
+*	Adicione a classe 'confirmar' onde você queira que apareça uma confirmação "Deseja fazer isso?"
+*/
 $('a.confirmar').on('click', function(e) {
 	if (confirm('Deseja fazer isso?') == false) {
 		e.preventDefault();
 	}
 });
+
+/**
+*	Função para habilitar a função sort em tabelas bootstrap com AJAX
+*	
+*	No HTML:
+*	Adicionar <tbody class="sortable">
+*	Adicionar <tr id="id_<?=$item['id']?>">
+*	Adicionar em algum lugar da página um <input type="hidden" id="sort_function" value="XXXXX"> onde XXXXX é a function do Controller admin/Ajax.php
+*	O #admin_url já está adicionado no template default.php no painel de administração
+*/
+if (typeof $.fn.sortable === 'function') {
+    $('.sortable').each(function() {
+    	var sort_function = $('#sort_function').val();
+    	var root_dir = $('#admin_url').val();
+    	console.log(sort_function);
+    	console.log(root_dir);
+    	if (typeof(sort_function !== "undefined") && typeof(root_dir !== "undefined")) {
+	        $(this).sortable({
+	            axis: 'y',
+	            update: function (event, ui) {
+	                var data = $(this).sortable('serialize');
+	 
+	                // POST to server using $.post or $.ajax
+	                $.ajax({
+	                    data: data,
+	                    type: 'POST',
+	                    url: root_dir+'ajax/'+sort_function,
+	                });
+	            }
+	        });
+   		}
+    });
+}

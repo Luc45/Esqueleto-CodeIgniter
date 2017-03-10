@@ -50,19 +50,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 
-$route['404_override'] = 'pages/not_found';
+$route['404_override'] = 'pages/view/not_found';
 $route['translate_uri_dashes'] = FALSE;
 
 $route['assets/(:any)'] = 'assets/$1';
 
+$route['admin'] = 'admin/estatico';
+
 $route['login'] = 'admin/auth/login';
 $route['logout'] = 'admin/auth/logout';
 
-$route['admin'] = 'admin/estatico';
- 
 $route['admin/paginas'] = 'admin/paginas/index';
-$route['admin/paginas/editar/(:any)'] = 'admin/paginas/editar/$1';
- 
+$route['admin/menus'] = 'admin/menus/index';
+$route['admin/depoimentos'] = 'admin/depoimentos/index';
+
 $route['admin/perfil'] = 'admin/perfil/index';
 $route['admin/perfil/editar'] = 'admin/auth/edit_user';
 
@@ -80,14 +81,9 @@ $route['esqueci-a-senha'] = 'admin/auth/forgot_password';
 $route['resetar-senha/(:any)'] = 'admin/auth/reset_password/$1';
 $route['ativar-conta/(:any)/(:any)'] = 'admin/auth/activate/$1/$2';
 
-$route['admin/paginas'] = 'admin/paginas/index';
-$route['admin/paginas/editar/(:any)'] = 'admin/paginas/editar/$1';
-
+$route['admin/(:any)/(:any)/(:num)'] = 'admin/$1/$2/$3';
+$route['admin/(:any)/(:any)'] = 'admin/$1/$2';
 $route['admin/(:any)'] = 'admin/estatico/index/$1';
 
-// Controller de páginas
-// Exemplo: sobre = controller pages, action sobre
-$route['(:any)'] = 'pages/$1';
-
-// Index do nosso site
-$route['default_controller'] = 'pages/home';
+$route['(:any)'] = 'pages/view/$1';
+$route['default_controller'] = 'pages/view';

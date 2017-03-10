@@ -1,13 +1,13 @@
 <!doctype html>
 <html lang="pt-br">
 <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/png" href="<?php echo asset_url_admin(); ?>img/favicon.ico">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta charset="utf-8" />
+	<link rel="icon" type="image/png" href="<?php echo asset_url_admin(); ?>img/favicon.ico">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-    <title><?=$title?></title>
+	<title><?=$title?></title>
  
-    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
 
 
@@ -30,35 +30,6 @@
 </head>
 <body> 
 
-<nav class="navbar navbar-transparent navbar-absolute">
-    <div class="container">    
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">Edite este cabeçalho! <small>application/views/admin/templates/login_template.php</small></a>
-        </div>
-        <div class="collapse navbar-collapse">       
-            
-            <ul class="nav navbar-nav navbar-right">
-                <li>
-                   <a href="#">
-                        admin@admin.com / password
-                    </a>
-                </li>
-                <li>
-                   <a href="http://benedmunds.com/ion_auth/" target="_blank">
-                        Ion Auth documentation ->
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
-
     <?php echo $body ?>
 
 </body>
@@ -67,14 +38,14 @@
     <script src="<?php echo asset_url_admin(); ?>js/jquery-1.10.2.js" type="text/javascript"></script>
     <script src="<?php echo asset_url_admin(); ?>js/jquery-ui.min.js" type="text/javascript"></script>
     <script src="<?php echo asset_url_admin(); ?>js/bootstrap.min.js" type="text/javascript"></script>
-    <script src="<?php echo asset_url_admin(); ?>js/bootstrap-checkbox-radio-switch.js" type="text/javascript"></script>
+	<script src="<?php echo asset_url_admin(); ?>js/bootstrap-checkbox-radio-switch.js" type="text/javascript"></script>
 
     <!-- Light Bootstrap Dashboard Core javascript and methods -->
     <script src="<?php echo asset_url_admin(); ?>js/light-bootstrap-dashboard.js"></script>
-    
-    <!-- Light Bootstrap Dashboard DEMO methods, don't include it in your project! -->
-    <script src="<?php echo asset_url_admin(); ?>js/demo.js"></script>
-        
+	
+	<!-- Light Bootstrap Dashboard DEMO methods, don't include it in your project! -->
+	<script src="<?php echo asset_url_admin(); ?>js/demo.js"></script>
+	    
     <script type="text/javascript">
         $().ready(function(){
             lbd.checkFullPageBackgroundImage();

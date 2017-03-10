@@ -12,12 +12,12 @@
                             <form method="POST">
 
                                   <div class="form-group">
-                                        <?php echo lang('create_group_name_label', 'group_name');?> <br />
+                                        <?php echo lang('create_group_name_label', 'group_name');?>
                                         <?php echo form_input($group_name);?>
                                   </div>
 
                                   <div class="form-group">
-                                        <?php echo lang('create_group_desc_label', 'description');?> <br />
+                                        <?php echo lang('create_group_desc_label', 'description');?>
                                         <?php echo form_input($description);?>
                                   </div>
                                   <div class="form-group">

@@ -2,21 +2,23 @@
 
 	class MY_Controller extends CI_Controller {
 
-		protected $user;
-
 		public function __construct() {
+			parent::__construct();
 
 			/*
-				Esse controller pode ser usado se você quiser fazer uma table chamada config e configurá-la assim:
-				
-				id | nome | valor
-				1 | site_name | meu_site
-				2 | base_url | http://meusite.com.br
-				
-				E por aí vai. Você vai poder acessar esses valores em qualquer controller que extenda o MY_Controller pelo comando:
-				$this->config->item('site_name');
+			*	controller integrado com database config
+			*
+			*	esse controler deve ser usado caso você use uma table config no seu banco de dados
+			*	ele pega todas as configurações do banco e torna elas disponíveis para uso nos controllers
+			*
+			*	examplo:
+			*	table config
+			*		id    nome        valor
+			*   	0     template    default
+			*
+			* 	controller Pages.php
+			*		$this->load->template('pages', 'home', $data, $this->config->item('template'));
 			*/
-			parent::__construct();
 
 			// Instancia o CodeIgniter
 			$CI =& get_instance();
@@ -30,8 +32,9 @@
 			}
 
 			$this->load->library('ion_auth');
-			// Torna os dados do usuário disponíveis nas páginas
-			$this->user = $this->ion_auth->user()->row();
+			
+			$global_data = array('user'=>$this->ion_auth->user()->row(), 'site_name'=>$this->config->item('site_title'));
+			$this->load->vars($global_data);
 	        
 		}
 

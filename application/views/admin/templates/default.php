@@ -44,6 +44,23 @@
         Tip 2: you can also add an image using data-image tag
 
     -->
+
+        <?php
+            /**
+            *   organizar menus e submenus
+            *
+            *   esse código impede erros de menus não configurados.
+            *   para marcar um menu como "active", você deve passar o valor menu_ativo no seu controller
+            *   
+            *   @example $data['menu_ativo'] = 'usuarios';
+            *   @example $data['submenu_ativo'] = 'criar_usuario';
+            */
+            if (!isset($menu_ativo))
+                $menu_ativo = '';
+            if (!isset($submenu_ativo))
+                $submenu_ativo = '';
+        ?>
+
     	<div class="sidebar-wrapper">
             <div class="logo">
                 <a href="<?=admin_url()?>" class="simple-text">
@@ -67,18 +84,20 @@
                     </a>
                 </li>
 
-                <li <?=in_array($menu_ativo, array('ver_usuario', 'criar_grupo', 'criar_usuario', 'editar_grupo'))?'class="active"':''?>>
-                    <a data-toggle="collapse" href="#usuariosMenu" class="" aria-expanded="false">
-                        <i class="pe-7s-user"></i>
-                        <p>Usuários
+                <!-- Exemplo de SubMenu -->
+                <!-- $data['menu'] = 'depoimentos'; -->
+                <!-- $data['submenu'] = 'cadastrar_depoimento'; -->
+                <li>
+                    <a data-toggle="collapse" href="#depoimentosMenu" class="" aria-expanded="false">
+                        <i class="pe-7s-smile"></i>
+                        <p>Depoimentos
                            <b class="caret"></b>
                         </p>
                     </a>
-                    <div class="collapse <?=in_array($menu_ativo, array('ver_usuario', 'criar_grupo', 'criar_usuario', 'editar_grupo'))?'in':''?>" id="usuariosMenu" aria-expanded="false">
+                    <div class="collapse <?=$menu_ativo=='depoimentos'?'in':''?>" id="depoimentosMenu" aria-expanded="false">
                         <ul class="nav">
-                            <li <?=$menu_ativo=='ver_usuario'?'class="active"':''?>><a href="<?=admin_url()?>usuarios">Ver usuários</a></li>
-                            <li <?=$menu_ativo=='criar_usuario'?'class="active"':''?>><a href="<?=admin_url()?>usuarios/criar">Criar Usuário</a></li>
-                            <li <?=$menu_ativo=='criar_grupo'?'class="active"':''?>><a href="<?=admin_url()?>usuarios/grupos/criar">Criar Grupo</a></li>
+                            <li <?=$submenu_ativo=='ver_depoimentos'?'class="active"':''?>><a href="<?=admin_url()?>depoimentos">Ver Depoimentos</a></li>
+                            <li <?=$submenu_ativo=='cadastrar_depoimento'?'class="active"':''?>><a href="<?=admin_url()?>depoimentos/cadastrar">Cadastrar Depoimento</a></li>
                         </ul>
                     </div>
                 </li>
@@ -148,15 +167,15 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li class="dropdown">
                               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    Olá, <?=$user->first_name?>!
+                                    Olá, <?=$this->ion_auth->user()->row()->first_name?>!
                                     <b class="caret"></b>
                               </a>
                               <ul class="dropdown-menu">
-                                <li><a href="<?=admin_url()?>perfil/editar/<?=$user->id?>">Editar Perfil</a></li>
+                                <li><a href="<?=admin_url()?>perfil/editar">Editar Perfil</a></li>
                               </ul>
                         </li>
                         <li>
-                            <a href="<?=admin_url()?>logout">
+                            <a href="<?=base_url()?>logout">
                                 <i class="fa fa-sign-out" aria-hidden="true"></i> Logout
                             </a>
                         </li>
@@ -189,7 +208,8 @@
             </div>
         </div>
 
-
+            <!-- Para que possamos pegar a URL do projeto no jQuery -->
+            <input type="hidden" id="admin_url" value="<?=admin_url()?>">
         </body>
 
             <!--   Core JS Files   -->
@@ -221,18 +241,33 @@
 
             <!-- Habilita as notificações -->
             <script type="text/javascript">
-                $(document).ready(function(){
-                    <?php if (isset($message)): ?>
-                        $.notify({
-                            icon: 'pe-7s-bell',
-                            message: "<?=$message?>"
-
-                        },{
-                            type: 'warning',
-                            timer: 3000
-                        });
-                    <?php endif; ?>
-                });
+                <?php if (isset($_SESSION['message'])): ?>
+                    $.notify({
+                        icon: 'pe-7s-bell',
+                        message: '<?=trim(strip_tags($_SESSION['message']))?>',
+                    },{
+                        type: 'info',
+                        timer: 3000
+                    });
+                <?php endif; ?>
+                <?php if (isset($_SESSION['success'])): ?>
+                    $.notify({
+                        icon: 'pe-7s-bell',
+                        message: '<?=trim(strip_tags($_SESSION['success']))?>',
+                    },{
+                        type: 'success',
+                        timer: 3000
+                    });
+                <?php endif; ?>
+                <?php if (isset($_SESSION['error'])): ?>
+                    $.notify({
+                        icon: 'pe-7s-bell',
+                        message: '<?=trim(strip_tags($_SESSION['error']))?>',
+                    },{
+                        type: 'danger',
+                        timer: 3000
+                    });
+                <?php endif; ?>
             </script>
 
             <?php if ($menu_ativo == 'dashboard'): ?>

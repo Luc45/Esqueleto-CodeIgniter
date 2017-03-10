@@ -20,9 +20,22 @@
 .card .header small {
     font-size: 0.7em;
     line-height: 1.5em;
-    display: block;
     margin-top: 20px;
+    margin-left: 10px;
 }
 .login-page .card .header {
     padding-bottom: 15px;
+}
+td.submenus_admin ul {
+    padding: 0;
+}
+td.submenus_admin li {
+    list-style: none;
+    display: inline;
+}
+td.submenus_admin li:first-child:before {
+    content: '';
+}
+td.submenus_admin li:before {
+    content: '| ';
 }

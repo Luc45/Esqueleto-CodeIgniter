@@ -15,7 +15,15 @@ class Pages extends CI_Controller {
 		$data['title'] = 'Página Inicial'; // Usado no <title>
 		$data['menu_ativo'] = 'home'; // Usado para identificar o menu "active"
 		$data['menus'] = $this->menus;
-		$this->template->load('pages', 'home', $data, 'default'); // a função Load carrega application/views/frontend/(primeiro argumento = tipo de view)/(segundo argumento = nome do arquivo)... Terceiro argumento: Dados que serão passados para a view... Quarto argumento: Template que será carregado da pasta frontend/templates 
+
+		/*
+		* function load()
+		*
+		* Carrega uma view da pasta application/views/frontend/$arg1/$arg2
+		* $arg 3 = $data que será passada para a view
+		* $arg 4 = Template que será carregado da pasta frontend/templates (padrão: default)
+		*/
+		$this->template->load('pages', 'home', $data, 'default');
 	}
 
 	public function contato() {
