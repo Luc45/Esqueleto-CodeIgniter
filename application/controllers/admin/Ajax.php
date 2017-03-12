@@ -157,13 +157,11 @@ class Ajax extends Admin_Controller {
                         "url" => base_url()."assets/img/uploaded/".$arquivo_imagem
                     );
 
-                // usuário arrastou e soltou a imagem para fazer upload
-                if (isset($_GET['type']) && $_GET['type'] == 'images') {
-                    echo json_encode($retorno);
-                }
                 /**
                 *   @todo usuário fez upload pela toolbar
+                *
                 */
+                echo json_encode($retorno);
             }
 
         }
