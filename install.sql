@@ -100,7 +100,7 @@ CREATE TABLE `menu` (
 
 CREATE TABLE `paginas` (
   `id` int(11) NOT NULL,
-  `titulo` int(100) NOT NULL,
+  `titulo` varchar(100) NOT NULL,
   `corpo` text NOT NULL,
   `url` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

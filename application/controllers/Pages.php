@@ -22,12 +22,7 @@ class Pages extends CI_Controller {
 			// Existe essa página no banco de dados
 			$this->template->load_from_db('pages', $page, $data, 'default');
 		} else {
-			// Não existe essa página no banco de dados
-			if (!file_exists(APPPATH.'views/frontend/pages/'.$page.'.php')) {
-				show_my_404();
-				exit;
-			}
-			
+			// Não exite no banco, vamos carregar da view		
 			$this->template->load('pages', $page, $data, 'default');
 		}
 	}
