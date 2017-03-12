@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Instalação</title>
+</head>
+<body>
+	<ol>
+		<li>Importe o install.sql</li>
+		<li>Configure /application/config/database.php</li>
+		<li>
+			Configure /application/config/ion_auth.php
+			<ol>
+				<li>Edite $config['site_title'] com o nome do seu projeto</li>
+				<li>Edite $config['admin_email'] com seu email</li>
+			</ol>
+			<p>Se seu sistema não envia emails (exemplo: localhost) desabilite a função de ativar a conta por email:</p>
+			<p>Edite $config['email_activation']           = TRUE; to FALSE</p>
+		</li>
+		<li>4) Não precisa editar o config.php</li>
+		<li>Acesse http://seusite.com.br/login</li>
+		<li>Faça login com os dados: admin@admin.com / password</li>
+		<li>Vá para Usuários -> Ver Usuários</li>
+		<li>Edite o usuário Admin de acordo com seus dados.</li>
+		<li>Delete install.sql e install.html</li>
+	</ol>
+
+	<h3>Pronto, seu sistema está configurado!</h3>
+</body>
+</html>
+
