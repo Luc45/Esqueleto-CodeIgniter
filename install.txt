@@ -1,0 +1,33 @@
+1) Importe o install.sql
+2) Configure o /application/config/database.php
+3) Não precisa editar o config.php
+4) Acesse http://exemplo.com/login
+5) Acesse com os dados:
+	admin@admin.com / password
+6) Vá para Usuários -> Ver Usuários
+7 a) Edite o usuário Admin.
+	Troque o nome, sobrenome, email e senha. Salve.
+7 b) Se preferir, pode criar um novo usuário e deletar o admin. Pra isso:
+7 b.1) Vá para Usuários -> Criar Usuário
+7 b.2) Crie seu usuário normalmente. Você receberá um email para ativar sua conta.
+
+8) Abra /application/config/ion_auth.php
+
+	Edite $config['site_title']
+	Edite $config['admin_email']
+
+	Se você não receber seu email para ativar a conta, você pode desabilitar essa função:
+
+	Edite $config['email_activation']           = TRUE; to FALSE
+	Vá no banco de dados -> users e mude o campo Active para 1
+
+8) Pronto, agora edite o usuário que você acabou de criar.
+	Adicione ele ao grupo de Admins.
+	Salve.
+
+9) Delete o usuário admin padrão.
+	Vá em Usuários -> Ver Usuários
+	Clique em Editar no Admin
+	Remova ele do grupo de Admins
+	Exclua
+	Faça login novamente com a conta que você criou no passo 7 b.2

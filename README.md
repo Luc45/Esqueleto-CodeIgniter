@@ -3,6 +3,17 @@ Este é um esqueleto em CodeIgniter para projetos PHP.
 
 Consiste de um CodeIgniter 3 com a pasta System original, porém com algumas modificações na pasta applications para permitir criar um projeto rápido:
 
+# Apresentação
+
+
+# Demo:
+# http://esqueletocodeigniter.esy.es
+
+# Instalação:
+  - Descompacte o conteúdo deste zip no webserver de sua preferência
+  - Leia o install.txt
+  - Em poucos passos estará pronto para rodar.
+
 ---
 
  **Frontend**
@@ -11,20 +22,34 @@ Consiste de um CodeIgniter 3 com a pasta System original, porém com algumas mod
  - Font Awesome 
  - jQuery 
  - custom.css e custom.js praticamente zerados
+ - Menus dinâmicos no painel de administração, com opção de reordenar com drag-and-drop, e criação de submenus.
+ - Páginas dinâmicas no painel de administração, com CKEditor. Se houver uma view de mesmo nome, ela será carregada no lugar.
 
 ![frontend](http://i.imgur.com/dI6qT4X.jpg)
 
 **Login**
  - Autenticação com Ion Auth
- - Mensagem se o usuário erra a senha
- - Validação e sanitização usando funções nativas do CodeIgniter
- - Proteção contra ataques brute-force, bloqueando tentativas se o usuário errar muitas vezes seguidas a senha (configurável)
+ - Ativação de conta por email (configurável)
+ - Esqueceu a senha?
+ - Mensagem se o usuário erra a senha, com persistência de email
+ - Seguro e com proteção contra ataques brute-force
  ![login](http://i.imgur.com/TrOHfdW.jpg)
 
 **Admin**
 
  - Implementação do [Light Bootstrap Dashboard](https://www.creative-tim.com/product/light-bootstrap-dashboard) no CodeIgniter
  -  Arquivo original apenas adaptado para uso do sistema básico de template
+ -  Vem com:
+     - Páginas
+         - Ver Páginas
+         - Criar Página
+    - Menus
+        - Ver Menus
+        - Criar Menus
+    - Usuários
+        - Ver Usuários
+        - Criar Usuário
+        - Criar Grupo
 
 ![admin panel](http://i.imgur.com/saGSeb6.jpg)
 
@@ -42,23 +67,23 @@ Consiste de um CodeIgniter 3 com a pasta System original, porém com algumas mod
 
 Boa organização de views, separando admin e frontend, e dentro de cada uma separando por tipo.
  
- 		- admin
- 			- pages
- 				- dashboard.php
- 				- icons.php
- 				- maps.php
- 				- notifications.php
- 				- table.php
- 				- typography.php
- 				- users.php
- 			- templates
- 				- default.php
- 		- frontend
- 			- pages
- 				- home.php
- 				- sobre.php
- 			- templates
- 				- default.php
+    - admin
+      - pages
+        - dashboard.php
+        - icons.php
+        - maps.php
+        - notifications.php
+        - table.php
+        - typography.php
+        - users.php
+      - templates
+        - default.php
+    - frontend
+      - pages
+        - home.php
+        - sobre.php
+      - templates
+        - default.php
 
 ---
 
@@ -82,9 +107,3 @@ Boa organização de views, separando admin e frontend, e dentro de cada uma sep
   -  config.php (modificado) -> Alterado language para 'portuguese-br' e enable_hooks para TRUE.
 
 ---
-
-**Instalação:**
-  - Descompacte o conteúdo deste zip no webserver de sua preferência
-  - Edite o application/config/config.php e application/config/database.php com a sua preferência
-  - Rode o install.sql que está na pasta raiz e depois delete este arquivo
-  - Eestá pronto pra rodar. Qualquer problema abra um Issue aqui.

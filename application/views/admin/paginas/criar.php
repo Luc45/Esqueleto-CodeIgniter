@@ -12,7 +12,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Título</label>
-                                        <input type="text" class="form-control" name="titulo">
+                                        <input type="text" class="form-control" name="titulo" id="criar_slug">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -20,7 +20,7 @@
                                         <label>URL</label>
                                         <div class="input-group">
                                             <span class="input-group-addon"><?=base_url()?></span>
-                                            <input type="text" class="form-control" name="url">
+                                            <input type="text" class="form-control" name="url" id="slug">
                                         </div>
                                     </div>
                                 </div>

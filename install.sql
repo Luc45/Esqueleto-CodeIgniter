@@ -92,17 +92,6 @@ CREATE TABLE `menu` (
   `ordem` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Extraindo dados da tabela `menu`
---
-
-INSERT INTO `menu` (`id`, `name`, `url`, `child_id`, `parent_id`, `ordem`) VALUES
-(3, 'Home', '', NULL, 1, 0),
-(4, 'Sobre', 'sobre', '5;6', 1, 0),
-(5, 'Empresa', 'empresa', NULL, 0, 0),
-(6, 'Serviços', 'servicos', NULL, 0, 0),
-(7, 'Contato', 'contato', NULL, 1, 0);
-
 -- --------------------------------------------------------
 
 --

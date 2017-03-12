@@ -3,6 +3,10 @@
 */
 var root_dir = $('#admin_url').val();
 
+/**
+*	Habilita o Datatables
+*
+*/
 $(document).ready(function() {
 	$('#datatables').DataTable({
 	    "pagingType": "full_numbers",
@@ -41,6 +45,13 @@ $(document).ready(function() {
 
 });
 
+/**
+*	Exibe uma mensagem de confirmação antes de executar uma ação
+*	
+*	Exemplo de uso:
+*	<a class="confirmar">Delete</a>
+*
+*/
 $('a.confirmar').on('click', function(e) {
 	if (confirm('Deseja fazer isso?') == false) {
 		e.preventDefault();
@@ -124,12 +135,20 @@ function slugify(e) {
 	}
 }
 
+/**
+*	Usado em Menus -> Editar
+*	Usado em Menus -> Criar
+*/
 $('#criar_slug').on('blur', function() {
 	var Text = $(this).val();
 	Text = slugify(Text);
 	$("#slug").val(Text);
 })
 
+/**
+*	Usado em Menus -> Editar
+*	Usado em Menus -> Criar
+*/
 $("#pagina_inicial_menu").on('click', function() {
 	if ($(this).is(':checked')) {
 		$("#slug").val('');

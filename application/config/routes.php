@@ -55,7 +55,7 @@ $route['translate_uri_dashes'] = FALSE;
 
 $route['assets/(:any)'] = 'assets/$1';
 
-$route['admin'] = 'admin/estatico';
+$route['admin'] = 'admin/paginas/index';
 
 $route['login'] = 'admin/auth/login';
 $route['logout'] = 'admin/auth/logout';

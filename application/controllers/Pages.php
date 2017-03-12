@@ -10,8 +10,6 @@ class Pages extends CI_Controller {
 		$data['title'] = '';
 
 		if ($page == "home") {
-			$this->load->model('depoimentos_model');
-			$data['depoimentos'] = $this->depoimentos_model->getDepoimentos();
 			$data['title'] = 'Home';
 		}
 

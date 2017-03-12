@@ -21,7 +21,7 @@ class Auth extends MY_Controller {
 		if (!$this->ion_auth->logged_in())
 		{
 			// redirect them to the login page
-			redirect(base_url().'login', 'refresh');
+			redirect(base_url().'login', 'location');
 		}
 		elseif (!$this->ion_auth->is_admin()) // remove this elseif if you want to enable this for non-admins
 		{
@@ -50,7 +50,7 @@ class Auth extends MY_Controller {
 	public function delete_user($id) {
 		if (!$this->ion_auth->logged_in()) {
 			// redirect them to the login page
-			redirect(base_url().'login', 'refresh');
+			redirect(base_url().'login', 'location');
 		}
 		elseif (!$this->ion_auth->is_admin()) {
 			// redirect them to the home page because they must be an administrator to view this
@@ -69,13 +69,13 @@ class Auth extends MY_Controller {
 
 
 		$this->session->set_flashdata('message', $mensagem);
-		redirect(admin_url().'usuarios', 'refresh');
+		redirect(admin_url().'usuarios', 'location');
 	}
 
 	public function delete_group($id) {
 		if (!$this->ion_auth->logged_in()) {
 			// redirect them to the login page
-			redirect(base_url().'login', 'refresh');
+			redirect(base_url().'login', 'location');
 		}
 		elseif (!$this->ion_auth->is_admin()) {
 			// redirect them to the home page because they must be an administrator to view this
@@ -96,7 +96,7 @@ class Auth extends MY_Controller {
 		// Verifica que não é o grupo admin
 		if ($group_name == $admin_group) {
 			$this->session->set_flashdata('message', "Não é possível excluir o grupo admin");
-			redirect(admin_url().'usuarios', 'refresh');
+			redirect(admin_url().'usuarios', 'location');
 		}
 
 		// Deleta o grupo
@@ -107,7 +107,7 @@ class Auth extends MY_Controller {
 		}
 
 		$this->session->set_flashdata('message', $mensagem);
-		redirect(admin_url().'usuarios', 'refresh');
+		redirect(admin_url().'usuarios', 'location');
 	}
 
 	// log the user in
@@ -131,11 +131,11 @@ class Auth extends MY_Controller {
 				if ($this->ion_auth->is_admin()) {
 					// if is admin, redirect them to the admin page
 					$this->session->set_flashdata('message', $this->ion_auth->messages());
-					redirect(admin_url(), 'refresh');
+					redirect(admin_url(), 'location');
 				} else {
 					// if is not admin, redirect them to home
 					$this->session->set_flashdata('message', $this->ion_auth->messages());
-					redirect(base_url(), 'refresh');
+					redirect(base_url(), 'location');
 				}
 			}
 			else
@@ -143,7 +143,8 @@ class Auth extends MY_Controller {
 				// if the login was un-successful
 				// redirect them back to the login page
 				$this->session->set_flashdata('message', $this->ion_auth->errors());
-				redirect(base_url().'login', 'refresh'); // use redirects instead of loading views for compatibility with MY_Controller libraries
+				$this->session->set_flashdata('login_persistence', $this->input->post('identity'));
+				redirect(base_url().'login', 'location'); // use redirects instead of loading views for compatibility with MY_Controller libraries
 			}
 		}
 		else
@@ -155,7 +156,7 @@ class Auth extends MY_Controller {
 			$this->data['identity'] = array('name' => 'identity',
 				'id'    => 'identity',
 				'type'  => 'text',
-				'value' => $this->form_validation->set_value('identity'),
+				'value' => $this->session->login_persistence,
 				'class' => 'form-control',
 			);
 			$this->data['password'] = array('name' => 'password',
@@ -178,7 +179,7 @@ class Auth extends MY_Controller {
 
 		// redirect them to the login page
 		$this->session->set_flashdata('message', $this->ion_auth->messages());
-		redirect('login', 'refresh');
+		redirect('login', 'location');
 	}
 
 	// change password
@@ -190,7 +191,7 @@ class Auth extends MY_Controller {
 
 		if (!$this->ion_auth->logged_in())
 		{
-			redirect('auth/login', 'refresh');
+			redirect('auth/login', 'location');
 		}
 
 		$user = $this->ion_auth->user()->row();
@@ -244,7 +245,7 @@ class Auth extends MY_Controller {
 			else
 			{
 				$this->session->set_flashdata('message', $this->ion_auth->errors());
-				redirect('auth/change_password', 'refresh');
+				redirect('auth/change_password', 'location');
 			}
 		}
 	}
@@ -304,7 +305,7 @@ class Auth extends MY_Controller {
 		            	}
 
 		                $this->session->set_flashdata('message', $this->ion_auth->errors());
-                		redirect(admin_url()."esqueci-a-senha", 'refresh');
+                		redirect(admin_url()."esqueci-a-senha", 'location');
             		}
 
 			// run the forgotten password method to email an activation code to the user
@@ -314,12 +315,12 @@ class Auth extends MY_Controller {
 			{
 				// if there were no errors
 				$this->session->set_flashdata('message', $this->ion_auth->messages());
-				redirect(base_url()."login", 'refresh'); //we should display a confirmation page here instead of the login page
+				redirect(base_url()."login", 'location'); //we should display a confirmation page here instead of the login page
 			}
 			else
 			{
 				$this->session->set_flashdata('message', $this->ion_auth->errors());
-				redirect(admin_url()."esqueci-a-senha", 'refresh');
+				redirect(admin_url()."esqueci-a-senha", 'location');
 			}
 		}
 	}
@@ -399,12 +400,12 @@ class Auth extends MY_Controller {
 					{
 						// if the password was successfully changed
 						$this->session->set_flashdata('message', $this->ion_auth->messages());
-						redirect(base_url()."login", 'refresh');
+						redirect(base_url()."login", 'location');
 					}
 					else
 					{
 						$this->session->set_flashdata('message', $this->ion_auth->errors());
-						redirect(base_url().'esqueci-a-senha' . $code, 'refresh');
+						redirect(base_url().'esqueci-a-senha' . $code, 'location');
 					}
 				}
 			}
@@ -413,7 +414,7 @@ class Auth extends MY_Controller {
 		{
 			// if the code is invalid then send them back to the forgot password page
 			$this->session->set_flashdata('message', $this->ion_auth->errors());
-			redirect(base_url()."esqueci-a-senha", 'refresh');
+			redirect(base_url()."esqueci-a-senha", 'location');
 		}
 	}
 
@@ -434,13 +435,13 @@ class Auth extends MY_Controller {
 		{
 			// redirect them to the auth page
 			$this->session->set_flashdata('message', $this->ion_auth->messages());
-			redirect(admin_url()."usuarios", 'refresh');
+			redirect(admin_url()."usuarios", 'location');
 		}
 		else
 		{
 			// redirect them to the forgot password page
 			$this->session->set_flashdata('message', $this->ion_auth->errors());
-			redirect(base_url()."esqueci-a-senha", 'refresh');
+			redirect(base_url()."esqueci-a-senha", 'location');
 		}
 	}
 
@@ -490,7 +491,7 @@ class Auth extends MY_Controller {
 
 			// redirect them back to the auth page
 			$this->session->set_flashdata('message', 'Usuário desativado com sucesso.');
-			redirect(admin_url().'usuarios', 'refresh');
+			redirect(admin_url().'usuarios', 'location');
 		}
 	}
 
@@ -501,7 +502,7 @@ class Auth extends MY_Controller {
 
         if (!$this->ion_auth->logged_in() || !$this->ion_auth->is_admin())
         {
-            redirect(admin_url(), 'refresh');
+            redirect(admin_url(), 'location');
         }
 
         $tables = $this->config->item('tables','ion_auth');
@@ -543,7 +544,7 @@ class Auth extends MY_Controller {
             // check to see if we are creating the user
             // redirect them back to the admin page
             $this->session->set_flashdata('message', $this->ion_auth->messages());
-            redirect(admin_url(), 'refresh');
+            redirect(admin_url(), 'location');
         }
         else
         {
@@ -627,7 +628,7 @@ class Auth extends MY_Controller {
 
 		if (!$this->ion_auth->logged_in() || (!$this->ion_auth->is_admin() && !($this->ion_auth->user()->row()->id == $id)))
 		{
-			redirect(base_url(), 'refresh');
+			redirect(base_url(), 'location');
 		}
 
 		$user = $this->ion_auth->user($id)->row();
@@ -698,11 +699,11 @@ class Auth extends MY_Controller {
 				    $this->session->set_flashdata('message', $this->ion_auth->messages() );
 				    if ($this->ion_auth->is_admin())
 					{
-						redirect(admin_url().'usuarios/editar/'.$user->id, 'refresh');
+						redirect(admin_url().'usuarios/editar/'.$user->id, 'location');
 					}
 					else
 					{
-						redirect(admin_url(), 'refresh');
+						redirect(admin_url(), 'location');
 					}
 
 			    }
@@ -712,11 +713,11 @@ class Auth extends MY_Controller {
 				    $this->session->set_flashdata('message', $this->ion_auth->errors() );
 				    if ($this->ion_auth->is_admin())
 					{
-						redirect(admin_url().'usuarios/editar/'.$user->id, 'refresh');
+						redirect(admin_url().'usuarios/editar/'.$user->id, 'location');
 					}
 					else
 					{
-						redirect(admin_url(), 'refresh');
+						redirect(admin_url(), 'location');
 					}
 
 			    }
@@ -795,7 +796,7 @@ class Auth extends MY_Controller {
 
 		if (!$this->ion_auth->logged_in() || !$this->ion_auth->is_admin())
 		{
-			redirect(admin_url(), 'refresh');
+			redirect(admin_url(), 'location');
 		}
 
 		// validate form input
@@ -809,7 +810,7 @@ class Auth extends MY_Controller {
 				// check to see if we are creating the group
 				// redirect them back to the admin page
 				$this->session->set_flashdata('message', $this->ion_auth->messages());
-				redirect(admin_url(), 'refresh');
+				redirect(admin_url(), 'location');
 			}
 		}
 		else
@@ -846,14 +847,14 @@ class Auth extends MY_Controller {
 		// bail if no group id given
 		if(!$id || empty($id))
 		{
-			redirect(admin_url(), 'refresh');
+			redirect(admin_url(), 'location');
 		}
 
 		$this->data['title'] = $this->lang->line('edit_group_title');
 
 		if (!$this->ion_auth->logged_in() || !$this->ion_auth->is_admin())
 		{
-			redirect(admin_url(), 'refresh');
+			redirect(admin_url(), 'location');
 		}
 
 		$group = $this->ion_auth->group($id)->row();
@@ -875,7 +876,7 @@ class Auth extends MY_Controller {
 				{
 					$this->session->set_flashdata('message', $this->ion_auth->errors());
 				}
-				redirect(admin_url(), 'refresh');
+				redirect(admin_url(), 'location');
 			}
 		}
 
