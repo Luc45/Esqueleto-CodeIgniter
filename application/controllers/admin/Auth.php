@@ -608,7 +608,6 @@ class Auth extends MY_Controller {
                 'class' => 'form-control',
             );
 
-            $this->data['user'] = $this->user;
 			$this->data['title'] = 'Criar Usuário';
 			$this->data['menu_ativo'] = 'usuarios';
 			$this->data['submenu_ativo'] = 'criar_usuario';
@@ -834,7 +833,6 @@ class Auth extends MY_Controller {
 				'class' => 'form-control',
 			);
 
-			$this->data['user'] = $this->user;
 			$this->data['title'] = 'Criar Grupo';
 			$this->data['menu_ativo'] = 'usuarios';
 			$this->data['submenu_ativo'] = 'criar_grupo';
@@ -905,7 +903,6 @@ class Auth extends MY_Controller {
 			'class' => 'form-control'
 		);
 
-			$this->data['user'] = $this->user;
 			$this->data['title'] = 'Editar Grupo';
 			$this->data['menu_ativo'] = 'usuarios';
 			$this->data['submenu_ativo'] = 'editar_grupo';

@@ -39,3 +39,16 @@ td.submenus_admin li:first-child:before {
 td.submenus_admin li:before {
     content: '| ';
 }
+.input-group-addon {
+    background-color: #efefef;
+    border: 1px solid #E3E3E3;
+    border-radius: 4px;
+}
+#adicionar_submenu {
+    width:200px;
+    display:inline
+}
+#adicionar_menu {
+    width:200px;
+    display:inline
+}

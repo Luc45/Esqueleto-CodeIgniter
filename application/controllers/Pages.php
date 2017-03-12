@@ -3,41 +3,35 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Pages extends CI_Controller {
 
-	private $menus;
+	public function view($page = 'home') {
 
-	public function __construct() {
-		parent::__construct();
-		$this->load->model('menu_model');
-		$this->menus = $this->menu_model->getMenus();
-	}
+		$this->load->model('menus_model');
 
-	public function home() {
-		$data['title'] = 'Página Inicial'; // Usado no <title>
-		$data['menu_ativo'] = 'home'; // Usado para identificar o menu "active"
-		$data['menus'] = $this->menus;
+		$data['title'] = '';
 
-		/*
-		* function load()
-		*
-		* Carrega uma view da pasta application/views/frontend/$arg1/$arg2
-		* $arg 3 = $data que será passada para a view
-		* $arg 4 = Template que será carregado da pasta frontend/templates (padrão: default)
-		*/
-		$this->template->load('pages', 'home', $data, 'default');
-	}
+		if ($page == "home") {
+			$this->load->model('depoimentos_model');
+			$data['depoimentos'] = $this->depoimentos_model->getDepoimentos();
+			$data['title'] = 'Home';
+		}
 
-	public function contato() {
-		$data['title'] = 'Contato';
-		$data['menu_ativo'] = 'contato';
-		$data['menus'] = $this->menus;
-		$this->template->load('pages', 'contato', $data, 'default');
-	}
+		$data['menus'] = $this->menus_model->getMenus();
+		$data['menu_ativo'] = $page;
 
-	public function not_found() {
-		$data['title'] = 'Página não encontrada';
-		$data['menu_ativo'] = '';
-		$data['menus'] = $this->menus;
-		$this->template->load('pages', 'not_found', $data, 'default');
+		$this->load->model('paginas_model');
+
+		if ($this->paginas_model->paginaExisteNoDb($page) == true) {
+			// Existe essa página no banco de dados
+			$this->template->load_from_db('pages', $page, $data, 'default');
+		} else {
+			// Não existe essa página no banco de dados
+			if (!file_exists(APPPATH.'views/frontend/pages/'.$page.'.php')) {
+				show_my_404();
+				exit;
+			}
+			
+			$this->template->load('pages', $page, $data, 'default');
+		}
 	}
 
 }

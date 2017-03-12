@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 08-Mar-2017 às 04:43
+-- Generation Time: 12-Mar-2017 às 18:29
 -- Versão do servidor: 10.1.16-MariaDB
 -- PHP Version: 5.6.24
 
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `ci_basico`
+-- Database: `novaacropole`
 --
 
 -- --------------------------------------------------------
@@ -55,6 +55,18 @@ INSERT INTO `groups` (`id`, `name`, `description`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `imagens`
+--
+
+CREATE TABLE `imagens` (
+  `id` int(11) NOT NULL,
+  `arquivo` varchar(36) NOT NULL,
+  `data_uploaded` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `login_attempts`
 --
 
@@ -76,19 +88,33 @@ CREATE TABLE `menu` (
   `name` varchar(50) NOT NULL,
   `url` varchar(100) NOT NULL,
   `child_id` varchar(25) DEFAULT NULL,
-  `is_parent` tinyint(1) NOT NULL
+  `parent_id` int(1) DEFAULT NULL,
+  `ordem` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `menu`
 --
 
-INSERT INTO `menu` (`id`, `name`, `url`, `child_id`, `is_parent`) VALUES
-(3, 'Home', '', NULL, 1),
-(4, 'Sobre', 'sobre', '5;6', 1),
-(5, 'Empresa', 'empresa', NULL, 0),
-(6, 'Serviços', 'servicos', NULL, 0),
-(7, 'Contato', 'contato', NULL, 1);
+INSERT INTO `menu` (`id`, `name`, `url`, `child_id`, `parent_id`, `ordem`) VALUES
+(3, 'Home', '', NULL, 1, 0),
+(4, 'Sobre', 'sobre', '5;6', 1, 0),
+(5, 'Empresa', 'empresa', NULL, 0, 0),
+(6, 'Serviços', 'servicos', NULL, 0, 0),
+(7, 'Contato', 'contato', NULL, 1, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `paginas`
+--
+
+CREATE TABLE `paginas` (
+  `id` int(11) NOT NULL,
+  `titulo` int(100) NOT NULL,
+  `corpo` text NOT NULL,
+  `url` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -160,6 +186,12 @@ ALTER TABLE `groups`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `imagens`
+--
+ALTER TABLE `imagens`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `login_attempts`
 --
 ALTER TABLE `login_attempts`
@@ -169,6 +201,12 @@ ALTER TABLE `login_attempts`
 -- Indexes for table `menu`
 --
 ALTER TABLE `menu`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `paginas`
+--
+ALTER TABLE `paginas`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -201,6 +239,11 @@ ALTER TABLE `config`
 ALTER TABLE `groups`
   MODIFY `id` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
+-- AUTO_INCREMENT for table `imagens`
+--
+ALTER TABLE `imagens`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT for table `login_attempts`
 --
 ALTER TABLE `login_attempts`
@@ -210,6 +253,11 @@ ALTER TABLE `login_attempts`
 --
 ALTER TABLE `menu`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+--
+-- AUTO_INCREMENT for table `paginas`
+--
+ALTER TABLE `paginas`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `users`
 --

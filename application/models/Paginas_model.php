@@ -21,4 +21,8 @@
 			return $pagina[0];
 		}
 
+		public function delete_pagina($id) {
+			$this->db->delete('paginas', array('id'=>$id));
+		}
+
 	}

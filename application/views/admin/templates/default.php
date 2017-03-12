@@ -5,7 +5,7 @@
 	<link rel="icon" type="image/png" href="<?=asset_url_admin()?>img/favicon.ico">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-	<title>CodeIgniter Básico - <?=$title?></title>
+	<title><?='CodeIgniter Básico - '.$title?></title>
 
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
@@ -44,7 +44,6 @@
         Tip 2: you can also add an image using data-image tag
 
     -->
-
         <?php
             /**
             *   organizar menus e submenus
@@ -63,78 +62,49 @@
 
     	<div class="sidebar-wrapper">
             <div class="logo">
-                <a href="<?=admin_url()?>" class="simple-text">
+                <a href="<?=base_url()?>" class="simple-text">
                     CodeIgniter Básico
                 </a>
             </div>
 
             <ul class="nav">
 
-                <li <?=$menu_ativo=='dashboard'?'class="active"':''?>>
-                    <a href="<?=admin_url()?>">
-                        <i class="pe-7s-graph"></i>
-                        <p>Dashboard</p>
-                    </a>
-                </li>
-
-                <li <?=$menu_ativo=='paginas'?'class="active"':''?>>
-                    <a href="<?=admin_url()?>paginas">
-                        <i class="pe-7s-note2"></i>
-                        <p>Páginas</p>
-                    </a>
-                </li>
-
-                <!-- Exemplo de SubMenu -->
-                <!-- $data['menu'] = 'depoimentos'; -->
-                <!-- $data['submenu'] = 'cadastrar_depoimento'; -->
                 <li>
-                    <a data-toggle="collapse" href="#depoimentosMenu" class="" aria-expanded="false">
-                        <i class="pe-7s-smile"></i>
-                        <p>Depoimentos
+                    <a data-toggle="collapse" href="#paginasMenu" class="" aria-expanded="false">
+                        <i class="pe-7s-note2"></i>
+                        <p>Páginas
                            <b class="caret"></b>
                         </p>
                     </a>
-                    <div class="collapse <?=$menu_ativo=='depoimentos'?'in':''?>" id="depoimentosMenu" aria-expanded="false">
+                    <div class="collapse <?=$menu_ativo=='paginas'?'in':''?>" id="paginasMenu" aria-expanded="false">
                         <ul class="nav">
-                            <li <?=$submenu_ativo=='ver_depoimentos'?'class="active"':''?>><a href="<?=admin_url()?>depoimentos">Ver Depoimentos</a></li>
-                            <li <?=$submenu_ativo=='cadastrar_depoimento'?'class="active"':''?>><a href="<?=admin_url()?>depoimentos/cadastrar">Cadastrar Depoimento</a></li>
+                            <li <?=$submenu_ativo=='ver_paginas'?'class="active"':''?>><a href="<?=admin_url()?>paginas">Ver Páginas</a></li>
+                            <li <?=$submenu_ativo=='criar_pagina'?'class="active"':''?>><a href="<?=admin_url()?>paginas/criar">Criar Página</a></li>
                         </ul>
                     </div>
                 </li>
 
-                <li <?=$menu_ativo=='table'?'class="active"':''?>>
-                    <a href="<?=admin_url()?>table">
-                        <i class="pe-7s-note2"></i>
-                        <p>Table List</p>
+                <li <?=$menu_ativo=='menus'?'class="active"':''?>>
+                    <a href="<?=admin_url()?>menus">
+                        <i class="pe-7s-way"></i>
+                        <p>Menus</p>
                     </a>
                 </li>
 
-                <li <?=$menu_ativo=='typography'?'class="active"':''?>>
-                    <a href="<?=admin_url()?>typography">
-                        <i class="pe-7s-news-paper"></i>
-                        <p>Typography</p>
+                <li>
+                    <a data-toggle="collapse" href="#usuariosMenu" class="" aria-expanded="false">
+                        <i class="pe-7s-user"></i>
+                        <p>Usuários
+                           <b class="caret"></b>
+                        </p>
                     </a>
-                </li>
-
-                <li <?=$menu_ativo=='icons'?'class="active"':''?>>
-                    <a href="<?=admin_url()?>icons">
-                        <i class="pe-7s-science"></i>
-                        <p>Icons</p>
-                    </a>
-                </li>
-
-                <li <?=$menu_ativo=='maps'?'class="active"':''?>>
-                    <a href="<?=admin_url()?>maps">
-                        <i class="pe-7s-map-marker"></i>
-                        <p>Maps</p>
-                    </a>
-                </li>
-
-                <li <?=$menu_ativo=='notifications'?'class="active"':''?>>
-                    <a href="<?=admin_url()?>notifications">
-                        <i class="pe-7s-bell"></i>
-                        <p>Notifications</p>
-                    </a>
+                    <div class="collapse <?=$menu_ativo=='usuarios'?'in':''?>" id="usuariosMenu" aria-expanded="false">
+                        <ul class="nav">
+                            <li <?=$submenu_ativo=='ver_usuario'?'class="active"':''?>><a href="<?=admin_url()?>usuarios">Ver usuários</a></li>
+                            <li <?=$submenu_ativo=='criar_usuario'?'class="active"':''?>><a href="<?=admin_url()?>usuarios/criar">Criar Usuário</a></li>
+                            <li <?=$submenu_ativo=='criar_grupo'?'class="active"':''?>><a href="<?=admin_url()?>usuarios/grupos/criar">Criar Grupo</a></li>
+                        </ul>
+                    </div>
                 </li>
 
             </ul>
@@ -184,7 +154,6 @@
             </div>
         </nav>
 
-
         <?php echo $body ?>
 
 
@@ -208,8 +177,7 @@
             </div>
         </div>
 
-            <!-- Para que possamos pegar a URL do projeto no jQuery -->
-            <input type="hidden" id="admin_url" value="<?=admin_url()?>">
+
         </body>
 
             <!--   Core JS Files   -->
@@ -228,6 +196,8 @@
 
             <script src="<?=asset_url_admin()?>js/jquery.datatables.js"></script>
 
+            <!--<script src="<?=asset_url_admin()?>js/jquery-ui.min.js.js"></script>-->
+
             <!--  Google Maps Plugin    -->
             <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
 
@@ -236,6 +206,18 @@
 
             <!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
             <script src="<?=asset_url_admin()?>js/demo.js"></script>
+
+            <!--
+                Javascripts adicionais definidos no controller
+                Uso: $data['scripts_adicionais'] = array('meuscript.js');
+            -->
+            <?php if (!empty($scripts_adicionais)):
+                foreach ($scripts_adicionais as $script_adicional): ?>
+                    <script src="<?php echo asset_url()?>admin/js/<?=$script_adicional?>"></script>
+            <?php endforeach; endif; ?>
+
+            <!-- Para que possamos pegar a URL do projeto com jQuery -->
+            <input type="hidden" id="admin_url" value="<?=admin_url()?>">
 
             <script src="<?=asset_url_admin()?>js/custom.js"></script>
 
