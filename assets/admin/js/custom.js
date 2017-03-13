@@ -59,6 +59,32 @@ $('a.confirmar').on('click', function(e) {
 });
 
 /**
+*	Habilita o bootstrap tooltips
+*/
+$('[data-toggle="tooltip"]').tooltip()
+
+/**
+* Mostrar preview de imagem no input file
+*
+* Exemplo:
+* <img id="preview_img" src="#" alt="Preview"></div>
+* <input type='file' onchange="previewImagem(this)"/>
+*/
+function previewImagem(input) {
+
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $('#preview_img').attr('src', e.target.result);
+            $('#preview_img').css('display', 'block');
+        }
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+/**
 *	Função para habilitar a função sort em tabelas bootstrap com AJAX
 *	
 *	No HTML:
