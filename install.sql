@@ -102,7 +102,8 @@ CREATE TABLE `paginas` (
   `id` int(11) NOT NULL,
   `titulo` varchar(100) NOT NULL,
   `corpo` text NOT NULL,
-  `url` varchar(100) NOT NULL
+  `url` varchar(100) NOT NULL,
+  `menu_ativo` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
