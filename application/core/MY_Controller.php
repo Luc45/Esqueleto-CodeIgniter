@@ -9,7 +9,7 @@
 			*	controller integrado com database config
 			*
 			*	esse controler deve ser usado caso você use uma table config no seu banco de dados
-			*	ele pega todas as configurações do banco e torna elas disponíveis para uso nos controllers
+			*	ele pega todas as configurações do banco e torna elas disponíveis para uso nos controllers.
 			*
 			*	examplo:
 			*	table config

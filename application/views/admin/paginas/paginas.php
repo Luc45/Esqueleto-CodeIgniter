@@ -19,6 +19,7 @@
                                             <th>Título</th>
                                             <th>URL</th>
                                             <th>Corpo</th>
+                                            <th>Menu Ativo</th>
                                             <th class="disabled-sorting text-right">Ações</th>
                                         </tr>
                                     </thead>
@@ -28,6 +29,7 @@
                                             <th>Título</th>
                                             <th>URL</th>
                                             <th>Corpo</th>
+                                            <th>Menu Ativo</th>
                                             <th class="disabled-sorting text-right">Ações</th>
                                         </tr>
                                     </tfoot>
@@ -38,6 +40,7 @@
                                             <td><?=$pagina['titulo']?></td>
                                             <td><?=$pagina['url']?></td>
                                             <td><?=getExcerpt(strip_tags($pagina['corpo']))?></td>
+                                            <td><?=$pagina['menu_ativo']?></td>
                                             <td class="text-right">
                                                 <a href="<?=admin_url()?>paginas/editar/<?=$pagina['id']?>" class="btn btn-simple btn-warning btn-icon edit"><i class="fa fa-edit"></i> Editar</a>
                                                 <a href="<?=admin_url()?>paginas/deletar/<?=$pagina['id']?>" class="btn btn-simple btn-danger btn-icon remove confirmar"><i class="fa fa-times"></i> Deletar</a>

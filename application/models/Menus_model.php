@@ -62,6 +62,11 @@
 			return $menu[0];
 		}
 
+		public function getPageMenuAtivo($page) {
+			$menu = $this->db->get_where('paginas', array('url'=>$page))->result_array();
+			return $menu[0]['menu_ativo'];
+		}
+
 		public function delete_menu($id) {
 
 			// Deleta os childs primeiro

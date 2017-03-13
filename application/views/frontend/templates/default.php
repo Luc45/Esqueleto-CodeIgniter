@@ -17,7 +17,7 @@
 					<div class="nav navbar-right navbar-nav">
 						<ul class="nav navbar-nav">
 							<?php foreach ($menus as $menu): ?>
-								<li class="<?php echo isset($menu_ativo) && $menu_ativo==$menu['url'] || $menu_ativo==strtolower($menu['name'])?' active ':''?>">
+								<li class="<?php echo isset($menu_ativo) && strtolower($menu_ativo)==strtolower($menu['url']) || strtolower($menu_ativo)==strtolower($menu['name'])?' active ':''?>">
 									<?php if (empty($menu['childs'])): ?>
 										<a href="<?php echo site_url().$menu['url']?>"><?=$menu['name']?></a>
 									<?php else: ?>

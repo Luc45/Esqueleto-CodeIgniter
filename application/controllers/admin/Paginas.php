@@ -38,6 +38,9 @@ class Paginas extends Admin_Controller {
 		$data['pagina'] = $this->paginas_model->getPage($id);
 		$data['title'] = $data['pagina']['titulo'];
 
+		$this->load->model('menus_model');
+		$data['menus'] = $this->menus_model->getMenus();
+
 		// Salva os dados
 			if (isset($_POST) && !empty($_POST)) {
 
@@ -45,12 +48,14 @@ class Paginas extends Admin_Controller {
 				$this->form_validation->set_rules('titulo', 'Título', 'required');
 				$this->form_validation->set_rules('url', 'URL', 'required');
 				$this->form_validation->set_rules('corpo', 'Conteúdo', 'required');
+				$this->form_validation->set_rules('menu_ativo', 'Menu Ativo', '');
 
 				if ($this->form_validation->run() === TRUE) {
 					$form = array(
 						'titulo' => $this->input->post('titulo'),
 						'url'  => $this->input->post('url'),
 						'corpo'  => $this->input->post('corpo'),
+						'menu_ativo'  => $this->input->post('menu_ativo'),
 					);
 
 					$this->salvar($id, $form);
@@ -77,6 +82,9 @@ class Paginas extends Admin_Controller {
 
 		$data['scripts_adicionais'] = array('ckeditor/ckeditor.js');
 
+		$this->load->model('menus_model');
+		$data['menus'] = $this->menus_model->getMenus();
+
 		// Salva os dados
 			if (isset($_POST) && !empty($_POST)) {
 
@@ -84,12 +92,14 @@ class Paginas extends Admin_Controller {
 				$this->form_validation->set_rules('titulo', 'Título', 'required');
 				$this->form_validation->set_rules('url', 'URL', 'required');
 				$this->form_validation->set_rules('corpo', 'Conteúdo', 'required');
+				$this->form_validation->set_rules('menu_ativo', 'Menu Ativo', '');
 
 				if ($this->form_validation->run() === TRUE) {
 					$form = array(
 						'titulo' => $this->input->post('titulo'),
 						'url'  => $this->input->post('url'),
 						'corpo'  => $this->input->post('corpo'),
+						'menu_ativo'  => $this->input->post('menu_ativo'),
 					);
 
 					$this->insert($form);
