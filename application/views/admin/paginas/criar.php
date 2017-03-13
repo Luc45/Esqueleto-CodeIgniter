@@ -28,8 +28,8 @@
                                     <div class="form-group">
                                         <label>Menu Ativo</label>
                                         <select name="menu_ativo" class="form-control">
+                                            <option value="">- Nenhum -</option>
                                             <?php foreach ($menus as $menu): ?>
-                                                <option value="">- Nenhum -</option>
                                                 <option value="<?=$menu['name']?>"><?=$menu['name']?></option>
                                             <?php endforeach; ?>
                                         </select>

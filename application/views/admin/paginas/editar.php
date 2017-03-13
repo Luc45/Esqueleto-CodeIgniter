@@ -9,19 +9,30 @@
                     <div class="content">
                         <form method="POST">
                             <div class="row">
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                     <div class="form-group">
                                         <label>Título</label>
                                         <input type="text" class="form-control" name="titulo" value="<?=$pagina['titulo']?>">
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                     <div class="form-group">
                                         <label>URL</label>
                                         <div class="input-group">
                                             <span class="input-group-addon"><?=base_url()?></span>
                                             <input type="text" class="form-control" name="url" value="<?=$pagina['url']?>">
                                         </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Menu Ativo</label>
+                                        <select name="menu_ativo" class="form-control">
+                                            <option value="">- Nenhum -</option>
+                                            <?php foreach ($menus as $menu): ?>
+                                                <option value="<?=$menu['name']?>" <?=$menu['name']==$pagina['menu_ativo']?' selected ':''?>><?=$menu['name']?></option>
+                                            <?php endforeach; ?>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
