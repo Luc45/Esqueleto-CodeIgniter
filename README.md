@@ -4,10 +4,10 @@ Este é um esqueleto em CodeIgniter para projetos PHP.
 Consiste de um CodeIgniter 3 com a pasta System original, porém com algumas modificações na pasta applications para permitir criar um projeto rápido:
 
 # Apresentação
-
+[![Apresentação Esqueleto CodeIgniter](http://img.youtube.com/vi/bYrqWiiZarU/0.jpg)](http://www.youtube.com/watch?v=bYrqWiiZarU "Apresentação Esqueleto CodeIgniter")
 
 # Demo:
-# http://esqueletocodeigniter.esy.es
+# [http://esqueletocodeigniter.esy.es](http://esqueletocodeigniter.esy.es)
 
 # Instalação:
   - Descompacte o conteúdo deste zip no webserver de sua preferência
