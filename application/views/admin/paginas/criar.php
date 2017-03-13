@@ -9,19 +9,30 @@
                     <div class="content">
                         <form method="POST">
                             <div class="row">
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                     <div class="form-group">
                                         <label>Título</label>
                                         <input type="text" class="form-control" name="titulo" id="criar_slug">
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                     <div class="form-group">
                                         <label>URL</label>
                                         <div class="input-group">
                                             <span class="input-group-addon"><?=base_url()?></span>
                                             <input type="text" class="form-control" name="url" id="slug">
                                         </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Menu Ativo</label>
+                                        <select name="menu_ativo" class="form-control">
+                                            <?php foreach ($menus as $menu): ?>
+                                                <option value="">- Nenhum -</option>
+                                                <option value="<?=$menu['name']?>"><?=$menu['name']?></option>
+                                            <?php endforeach; ?>
+                                        </select>
                                     </div>
                                 </div>
                             </div>

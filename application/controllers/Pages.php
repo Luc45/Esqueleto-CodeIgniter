@@ -18,12 +18,18 @@ class Pages extends CI_Controller {
 
 		$this->load->model('paginas_model');
 
-		if ($this->paginas_model->paginaExisteNoDb($page) == true) {
-			// Existe essa página no banco de dados
-			$this->template->load_from_db('pages', $page, $data, 'default');
-		} else {
-			// Não exite no banco, vamos carregar da view		
+		if (file_exists(APPPATH.'views/frontend/pages/'.$page.'.php')) {
+			// Existe uma view com esse nome, vamos carregá-la
 			$this->template->load('pages', $page, $data, 'default');
+		} else {
+			if ($this->paginas_model->paginaExisteNoDb($page) == true) {
+				// Existe essa página no banco de dados, vamos carregá-la
+				$data['menu_ativo'] = $this->menus_model->getPageMenuAtivo($page);
+				$this->template->load_from_db('pages', $page, $data, 'default');
+			} else {
+				// Não exite nem view, nem no banco. Erro 404.
+				$this->template->load('pages', 'not_found', $data, 'default');
+			}
 		}
 	}
 
