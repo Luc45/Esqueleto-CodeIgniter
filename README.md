@@ -10,6 +10,9 @@ Consiste de um CodeIgniter 3 com a pasta System original, porém com algumas mod
 
 # Demo:
 # [http://esqueletocodeigniter.esy.es](http://esqueletocodeigniter.esy.es)
+# [http://esqueletocodeigniter.esy.es/admin](http://esqueletocodeigniter.esy.es/admin)
+
+admin@admin.com / password
 
 # Instalação:
   - Descompacte o conteúdo deste zip no webserver de sua preferência
