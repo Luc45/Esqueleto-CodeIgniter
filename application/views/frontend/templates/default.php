@@ -24,9 +24,9 @@
 										<a href="<?php echo site_url().$menu['url']?>" class="dropdown-toggle" data-toggle="dropdown" role="button"><?=$menu['name']?> <span class="caret"></span></a>
 									<?php endif; ?>
 									<ul class="dropdown-menu">
-									<?php foreach ($menu['childs'] as $child): ?>
+									<?php if(isset($menu['childs'])) {foreach ($menu['childs'] as $child): ?>
 											<li><a href="<?=$child['url']?>"><?=$child['name']?></a></li>
-									<?php endforeach; ?>
+									<?php endforeach;} ?>
 									</ul>
 								</li>
 							<?php endforeach; ?>
