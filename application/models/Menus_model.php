@@ -59,7 +59,12 @@
 
 		public function getSubmenuInfo($id) {
 			$menu = $this->db->get_where('menu', array('id'=>$id))->result_array();
-			return $menu[0];
+			if(is_array($menu)){
+				return $menu[0];
+			}else{
+				return 'Error';
+			}
+
 		}
 
 		public function getPageMenuAtivo($page) {
